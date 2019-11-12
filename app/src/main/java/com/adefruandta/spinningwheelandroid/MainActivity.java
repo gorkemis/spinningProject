@@ -1,5 +1,6 @@
 package com.adefruandta.spinningwheelandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements SpinningWheelView
                 // every 50 ms rander rotation
                 executeGetMethod();
                 wheelView.rotate(50, 3000, 50);
+
             }
         });
     }
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements SpinningWheelView
     @Override
     public void onStopRotation(String item) {
         Toast.makeText(this, item, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), Zomato.class);
+        startActivity(intent);
     }
 
     private void executeGetMethod() {
